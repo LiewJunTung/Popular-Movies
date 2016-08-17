@@ -7,4 +7,6 @@
     <string name="text_release_date">Release date</string>
     <string name="text_average_vote">Average vote</string>
     <string name="text_plot_synopsis">Plot synopsis</string>
+    <string name="text_share">share</string>
+    <string name="text_favourite">favourite</string>
 </resources>

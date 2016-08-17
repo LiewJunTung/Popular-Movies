@@ -10,17 +10,13 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public class BaseResponse<T> {
-    @SerializedName("page")
-    private int page;
+    @SerializedName("id")
+    private int id;
     @SerializedName("results")
     private T t;
-    @SerializedName("total_results")
-    private int totalResults;
-    @SerializedName("total_pages")
-    private int totalPages;
 
-    public int getPage() {
-        return page;
+    public int getId() {
+        return id;
     }
 
     @NotNull
@@ -28,11 +24,4 @@ public class BaseResponse<T> {
         return t;
     }
 
-    public int getTotalResults() {
-        return totalResults;
-    }
-
-    public int getTotalPages() {
-        return totalPages;
-    }
 }

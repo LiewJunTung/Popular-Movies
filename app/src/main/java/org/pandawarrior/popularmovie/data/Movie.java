@@ -5,8 +5,6 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Arrays;
-
 /**
  * Popular Movie App
  * Created by jtlie on 8/15/2016.
@@ -15,16 +13,14 @@ import java.util.Arrays;
 public class Movie implements Parcelable {
     private final static String TMDB_IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w185";
 
+    @SerializedName("id")
+    private int id;
     @SerializedName("poster_path")
     private String posterPath;
     @SerializedName("adult")
     private boolean adult;
     @SerializedName("overview")
     private String overview;
-    @SerializedName("genre_ids")
-    private int[] genreIds;
-    @SerializedName("id")
-    private int id;
     @SerializedName("original_title")
     private String originalTitle;
     @SerializedName("original_language")
@@ -67,9 +63,9 @@ public class Movie implements Parcelable {
         return overview;
     }
 
-    public int[] getGenreIds() {
+  /*  public int[] getGenreIds() {
         return genreIds;
-    }
+    }*/
 
     public int getId() {
         return id;
@@ -107,7 +103,47 @@ public class Movie implements Parcelable {
         return Double.toString(voteAverage);
     }
 
+    public void setAdultWithInt(int i){
+        adult = i > 0;
+    }
+
+    public void setVideoWithInt(int i){
+        video = i > 0;
+    }
+
     public Movie() {
+    }
+
+    public Movie(
+            int id,
+            int adult,
+            String posterPath,
+                 String overview,
+                 //    int[] genreIds,
+                 String originalTitle,
+                 String originalLanguage,
+                 String title,
+                 String backdropPath,
+                 double popularity,
+                 int voteCount,
+                 int video,
+                 double voteAverage,
+                 String releaseDate
+    ) {
+        this.posterPath = posterPath;
+        setAdultWithInt(adult);
+        this.overview = overview;
+      //  this.genreIds = genreIds;
+        this.id = id;
+        this.originalTitle = originalTitle;
+        this.originalLanguage = originalLanguage;
+        this.title = title;
+        this.backdropPath = backdropPath;
+        this.popularity = popularity;
+        this.voteCount = voteCount;
+        setVideoWithInt(video);
+        this.voteAverage = voteAverage;
+        this.releaseDate = releaseDate;
     }
 
     @Override
@@ -116,7 +152,7 @@ public class Movie implements Parcelable {
                 "posterPath='" + posterPath + '\'' +
                 ", adult=" + adult +
                 ", overview='" + overview + '\'' +
-                ", genreIds=" + Arrays.toString(genreIds) +
+               // ", genreIds=" + Arrays.toString(genreIds) +
                 ", id=" + id +
                 ", originalTitle='" + originalTitle + '\'' +
                 ", originalLanguage='" + originalLanguage + '\'' +
@@ -139,7 +175,7 @@ public class Movie implements Parcelable {
         dest.writeString(this.posterPath);
         dest.writeByte(this.adult ? (byte) 1 : (byte) 0);
         dest.writeString(this.overview);
-        dest.writeIntArray(this.genreIds);
+    //    dest.writeIntArray(this.genreIds);
         dest.writeInt(this.id);
         dest.writeString(this.originalTitle);
         dest.writeString(this.originalLanguage);
@@ -156,7 +192,7 @@ public class Movie implements Parcelable {
         this.posterPath = in.readString();
         this.adult = in.readByte() != 0;
         this.overview = in.readString();
-        this.genreIds = in.createIntArray();
+    //    this.genreIds = in.createIntArray();
         this.id = in.readInt();
         this.originalTitle = in.readString();
         this.originalLanguage = in.readString();

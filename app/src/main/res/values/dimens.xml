@@ -4,4 +4,11 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="view_vertical_margin">8dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="button_vertical_inset">6dp</dimen>
+    <dimen name="button_horizontal_inset">4dp</dimen>
+    <dimen name="button_radius">2dp</dimen>
+
+    <dimen name="button_horizontal_padding">8dp</dimen>
+    <dimen name="button_vertical_padding">4dp</dimen>
 </resources>

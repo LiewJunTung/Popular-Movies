@@ -4,6 +4,9 @@
         <variable
             name="movie"
             type="org.pandawarrior.popularmovie.data.Movie" />
+        <variable
+            name="review"
+            type="org.pandawarrior.popularmovie.data.MovieReview" />
     </data>
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="org.pandawarrior.popularmovie.ui.main.MovieDetailActivity">
+        tools:context="org.pandawarrior.popularmovie.ui.detail.MovieDetailActivity">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
@@ -29,6 +32,8 @@
 
         <include layout="@layout/content_movie_detail"
             app:movie="@{movie}"
+            app:review="@{review}"
+            android:id="@+id/content_movie_detail_include"
             />
 
     </android.support.design.widget.CoordinatorLayout>

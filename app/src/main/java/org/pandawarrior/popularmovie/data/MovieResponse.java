@@ -7,5 +7,5 @@ import java.util.List;
  * Created by jtlie on 8/15/2016.
  */
 
-public class MovieResponse extends BaseResponse<List<Movie>> {
+public class MovieResponse extends PagedResponse<List<Movie>> {
 }
