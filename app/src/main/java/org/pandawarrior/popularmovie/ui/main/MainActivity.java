@@ -30,14 +30,10 @@ public class MainActivity extends AppCompatActivity implements MainInterface{
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initActionBar();
         if (mainBinding.detailFragment != null){
-            if (savedInstanceState == null){
-               /* getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.detail_fragment, new DetailFragment(), DETAIL_FRAGMENT_TAG)
-                        .commit(); */
-            }
             mTwoPanes = true;
-            ((MainFragment)getFragmentManager().findFragmentById(R.id.main_fragment)).setTwoPanes(mTwoPanes);
+            ((MainFragment) getFragmentManager()
+                    .findFragmentById(R.id.main_fragment))
+                    .setTwoPanes(mTwoPanes);
         } else {
             mTwoPanes = false;
         }
