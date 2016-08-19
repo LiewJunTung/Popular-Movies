@@ -21,11 +21,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ApiUtils {
-    @IntDef({API_POPULAR, API_TOP_RATED})
+    @IntDef({API_POPULAR, API_TOP_RATED, API_FAVOURITES})
     public @interface ApiFilter {}
 
     public static final int API_TOP_RATED = 0;
     public static final int API_POPULAR = 1;
+    public static final int API_FAVOURITES = 2;
 
     private static HttpLoggingInterceptor loggingInterceptor() {
         return new HttpLoggingInterceptor()

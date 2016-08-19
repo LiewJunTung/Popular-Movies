@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <data>
-        <variable
-            name="movie"
-            type="org.pandawarrior.popularmovie.data.Movie" />
-        <variable
-            name="review"
-            type="org.pandawarrior.popularmovie.data.MovieReview" />
-    </data>
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <android.support.design.widget.CoordinatorLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
@@ -30,11 +26,12 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/content_movie_detail"
-            app:movie="@{movie}"
-            app:review="@{review}"
-            android:id="@+id/content_movie_detail_include"
-            />
+        <FrameLayout
+            android:id="@+id/detail_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:layout="@layout/fragment_detail" />
 
     </android.support.design.widget.CoordinatorLayout>
 </layout>

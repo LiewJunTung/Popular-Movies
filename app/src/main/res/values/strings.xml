@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Popular Movie</string>
-    <string name="Popular">Popular</string>
+    <string name="text_popular">Popular</string>
     <string name="text_top_rated">Top Rated</string>
     <string name="title_activity_movie_detail">MovieDetailActivity</string>
     <string name="text_title">Title</string>
@@ -8,5 +8,12 @@
     <string name="text_average_vote">Average vote</string>
     <string name="text_plot_synopsis">Plot synopsis</string>
     <string name="text_share">share</string>
-    <string name="text_favourite">favourite</string>
+    <string name="text_favourite">Favourite</string>
+    <string name="text_review">Reviews</string>
+    <string name="text_trailers">Trailers</string>
+    <string name="text_read_more">Read more</string>
+    <string name="text_error_no_data">No data is available, please try again later</string>
+    <string name="text_share_subject">Check out this movie</string>
+    <string name="text_share_content" formatted="false">Check out this movie \"%s\". It is very awesome. I found it in Popular Movie App</string>
+    <string name="text_how_to_share">How do you want to share?</string>
 </resources>

@@ -1,14 +1,12 @@
 package org.pandawarrior.popularmovie.ui.main;
 
 import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.pandawarrior.popularmovie.BR;
 import org.pandawarrior.popularmovie.R;
 import org.pandawarrior.popularmovie.data.Movie;
 import org.pandawarrior.popularmovie.databinding.LayoutItemMovieBinding;
@@ -20,16 +18,17 @@ import java.util.List;
  * Created by jtlie on 8/16/2016.
  */
 
-class MainActivityRecyclerAdapter extends RecyclerView.Adapter<MainActivityRecyclerAdapter.ViewHolder> {
+public class MainActivityRecyclerAdapter extends RecyclerView.Adapter<MainActivityRecyclerAdapter.ViewHolder> {
 
     private @Nullable List<Movie> movieList;
     private MovieClickHandler<Movie> clickHandler;
+    private View emptyView;
 
-    MainActivityRecyclerAdapter(@Nullable List<Movie> movieList) {
+    public MainActivityRecyclerAdapter(@Nullable List<Movie> movieList) {
         this.movieList = movieList;
     }
 
-    void setClickHandler(MovieClickHandler<Movie> clickHandler) {
+    public void setClickHandler(MovieClickHandler<Movie> clickHandler) {
         this.clickHandler = clickHandler;
     }
 
@@ -58,14 +57,14 @@ class MainActivityRecyclerAdapter extends RecyclerView.Adapter<MainActivityRecyc
         }
     }
 
-    void setMovieList(@Nullable List<Movie> movieList){
+    public void setMovieList(@Nullable List<Movie> movieList){
         if (movieList != null){
             this.movieList = movieList;
-            notifyDataSetChanged();
         }
+        notifyDataSetChanged();
     }
 
-    void addMovieList(@Nullable List<Movie> movieList){
+    public void addMovieList(@Nullable List<Movie> movieList){
         if (movieList != null && this.movieList != null){
             int start = this.movieList.size();
             this.movieList.addAll(movieList);
@@ -73,11 +72,23 @@ class MainActivityRecyclerAdapter extends RecyclerView.Adapter<MainActivityRecyc
         }
     }
 
+    public void setEmptyView(View emptyView) {
+        this.emptyView = emptyView;
+    }
+
     @Override
     public int getItemCount() {
+        if (emptyView != null){
+            if(movieList == null || movieList.size() <= 0){
+                emptyView.setVisibility(View.VISIBLE);
+            } else {
+                emptyView.setVisibility(View.GONE);
+            }
+        }
         if (movieList == null){
             return 0;
         }
+
         return movieList.size();
     }
 

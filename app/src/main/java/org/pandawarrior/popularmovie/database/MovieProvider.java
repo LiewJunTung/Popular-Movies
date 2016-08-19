@@ -13,7 +13,9 @@ import net.simonvt.schematic.annotation.TableEndpoint;
  */
 @ContentProvider(authority = MovieProvider.AUTHORITY, database = AppDatabase.class)
 public final class MovieProvider {
-    public static final String AUTHORITY = "org.pandawarrior.popularmovie";
+    static final String AUTHORITY = "org.pandawarrior.popularmovie";
+    static final String DIR_MIME = "vnd.android.cursor.dir";
+    static final String ITEM_MIME = "vnd.android.cursor.item";
 
     @TableEndpoint(table = AppDatabase.MOVIES)
     public static class Movies {

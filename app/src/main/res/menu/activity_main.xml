@@ -5,9 +5,11 @@
 
     <group android:id="@+id/menu_sort_group"
         android:enabled="true">
-        <item android:title="@string/Popular"
+        <item android:title="@string/text_popular"
             android:id="@+id/menu_sort_popular" />
         <item android:title="@string/text_top_rated"
             android:id="@+id/menu_sort_top"/>
+        <item android:title="@string/text_favourite"
+            android:id="@+id/menu_sort_favourite"/>
     </group>
 </menu>
